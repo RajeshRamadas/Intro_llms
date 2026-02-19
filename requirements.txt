@@ -1,0 +1,19 @@
+# Core deep learning
+torch>=2.0.0
+
+# Hugging Face Transformers
+transformers>=4.35.0
+
+# Evaluation library
+evaluate>=0.4.0
+
+# Datasets support (used internally by evaluate)
+datasets>=2.14.0
+
+# Tokenizers
+tokenizers>=0.14.0
+
+# Optional: For BLEU, ROUGE, METEOR extra support
+sacrebleu>=2.3.0
+rouge-score>=0.1.2
+nltk>=3.8.1
