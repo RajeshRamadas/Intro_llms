@@ -19,7 +19,12 @@ with torch.no_grad():
     output = model.generate(
         inputs["input_ids"],
         attention_mask=inputs["attention_mask"],
-        max_length=100
+        max_length=1000,
+        temperature=0.9,
+        top_k=50,
+        top_p=0.95,
+        do_sample=True,
+        num_return_sequences=5  # Number of outputs you want
     )
 
 print("After generation GPU memory (MB):",
