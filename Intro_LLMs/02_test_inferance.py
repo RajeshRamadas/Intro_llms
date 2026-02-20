@@ -19,15 +19,18 @@ with torch.no_grad():
     output = model.generate(
         inputs["input_ids"],
         attention_mask=inputs["attention_mask"],
-        max_length=1000,
+        max_length=300,
         temperature=0.9,
         top_k=50,
         top_p=0.95,
         do_sample=True,
-        num_return_sequences=5  # Number of outputs you want
+        num_return_sequences=3  # Number of outputs you want
     )
 
 print("After generation GPU memory (MB):",
       torch.cuda.memory_allocated() / 1024**2)
 
-print(tokenizer.decode(output[0], skip_special_tokens=True))
+for i, sequence in enumerate(output):
+    print(f"Generated sequence {i+1}:")
+    print(tokenizer.decode(sequence, skip_special_tokens=True))
+    print()
