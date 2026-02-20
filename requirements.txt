@@ -1,8 +1,16 @@
+
 # Core deep learning
-torch>=2.0.0
+torch>=2.1.0
+
 
 # Hugging Face Transformers
-transformers>=4.35.0
+transformers>=4.41.0
+
+# Hugging Face Accelerate
+accelerate>=0.21.0
+
+# Hugging Face Hub
+huggingface-hub>=0.23.0
 
 # Evaluation library
 evaluate>=0.4.0
