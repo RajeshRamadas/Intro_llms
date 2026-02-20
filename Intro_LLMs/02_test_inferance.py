@@ -10,7 +10,7 @@ device = torch.device("cuda")
 model.to(device)
 
 text = "Artificial intelligence is transforming the world because"
-inputs = tokenizer(text, return_tensors="pt").to(device)
+inputs = tokenizer(text, return_tensors="pt", return_attention_mask=True).to(device)
 
 print("Before generation GPU memory (MB):",
       torch.cuda.memory_allocated() / 1024**2)
@@ -18,6 +18,7 @@ print("Before generation GPU memory (MB):",
 with torch.no_grad():
     output = model.generate(
         inputs["input_ids"],
+        attention_mask=inputs["attention_mask"],
         max_length=100
     )
 
