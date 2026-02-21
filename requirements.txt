@@ -28,6 +28,8 @@ nltk>=3.8.1
 
 matplotlib
 
+sentencepiece
+
 #python -m pip install --upgrade pip
 #python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 #python -m pip install transformers accelerate huggingface-hub evaluate datasets tokenizers sacrebleu rouge-score nltk
