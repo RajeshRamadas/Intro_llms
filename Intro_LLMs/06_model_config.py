@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoConfig, AutoTokenizer
+from transformers import AutoConfig, AutoTokenizer, AutoModel
 
 def inspect_model(model_name):
     print("\n" + "="*60)
@@ -30,14 +30,24 @@ def model_category(model_name):
     else:
         print(f"{model_name} → Encoder-only (BERT-style)")
 
+def count_parameters(model_name):
+    model = AutoModel.from_pretrained(model_name)
+    total_params = sum(p.numel() for p in model.parameters())
+    print(f"{model_name} → {total_params/1e6:.2f} Million parameters")
 
 # 🔥 Inspect Different Models
 inspect_model("sshleifer/distilbart-cnn-12-6")
 inspect_model("gpt2")
 inspect_model("Helsinki-NLP/opus-mt-en-de")
+inspect_model("bert-base-uncased")
 
 
 model_category("gpt2")
 model_category("bert-base-uncased")
 model_category("sshleifer/distilbart-cnn-12-6")
+model_category("Helsinki-NLP/opus-mt-en-de")
 
+count_parameters("gpt2")
+count_parameters("sshleifer/distilbart-cnn-12-6")
+count_parameters("Helsinki-NLP/opus-mt-en-de")
+count_parameters("bert-base-uncased")
