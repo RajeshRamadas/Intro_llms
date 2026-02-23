@@ -34,3 +34,4 @@ Thumbs.db
 
 # HuggingFace cache (optional)
 .cache/
+/results
